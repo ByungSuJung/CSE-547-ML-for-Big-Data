@@ -102,8 +102,7 @@ def objective_func1(w, lambd, batch_x, batch_y):
     The data type of all these input is torch.autograd.Variable so that we can use autograd in Pytorch
     """
     if len(batch_x.size()) == 1:
-        return lambd / 2 * w.norm(2) ** 2 + 1. / len(batch_y) * \
-                                            sum(1. / 2. * (batch_y - batch_x.dot(w)) ** 2)
+        return lambd / 2 * w.norm(2) ** 2 + 1. / len(batch_y) * sum(1. / 2. * (batch_y - batch_x.dot(w)) ** 2)
     else:
         return lambd/2*w.norm(2)**2 + 1./len(batch_y)*sum(1./2.*(batch_y - batch_x.mv(w))**2)
 
